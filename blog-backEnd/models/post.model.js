@@ -1,22 +1,23 @@
 const mongoose = require('mongoose')
 
-const PostSchema = new mongoose.Schema({
+const BlogPostSchema = new mongoose.Schema({
  /* id: {
     type: mongoose.Schema.Types.ObjectId,
     default: new mongoose.Types.ObjectId()
   },*/
-  type: {
-    type: String,
-    enum: ['Html', 'Css', 'JavaScript'],
-    required: true
-  },
+
   title: {
     type: String,
     required: true
   },
-  content: {
+  text: {
     type: String,
     required: true
+  },
+  picture: {
+    type: String,
+    required: true,
+    default: "default.jpg"
   },
   createdAt: {
     type: Date,

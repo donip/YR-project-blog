@@ -11,6 +11,15 @@ const https = require('https');
 const postRouter = require('./routes/post.route')
 const app = express()
 
+// engedélyezés angularra
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+//-----------------------------------------
+
 
 // Connect to MongoDB
 mongoose.connect(db.uri, db.options).then(
