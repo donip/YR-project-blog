@@ -53,7 +53,7 @@ app.use(helmet())
 
 
 // Home page
-app.use('/post', postRouter)
+app.use('/api/blogpost', postRouter)
 
 
 

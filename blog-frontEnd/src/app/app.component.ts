@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, RequestOptionsArgs } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
+import { HttpReqService } from './http-req.service';
 
 @Component({
   selector: 'app-root',

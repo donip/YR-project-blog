@@ -30,9 +30,9 @@ const BlogPostSchema = new mongoose.Schema({
 })
 
 // Methods
-PostSchema.method({})
+BlogPostSchema.method({})
 
 // Static Methods
-PostSchema.static({})
+BlogPostSchema.static({})
 
-module.exports = mongoose.model('Post', PostSchema)
+module.exports = mongoose.model('Post', BlogPostSchema)
