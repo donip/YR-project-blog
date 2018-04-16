@@ -27,7 +27,7 @@ header
           button.close(type='button', data-dismiss='modal', aria-label='Close')
             span(aria-hidden='true') ×
           h5 Bejelentkezés
-          form(action="", method="post")
+          form(action="localhost:3004/api/login", method="post")
             .form-group
               input#loginEmail.form-control(type="email", name="loginEmail", aria-describedby="email", placeholder="E-mail cím")
             .form-group
