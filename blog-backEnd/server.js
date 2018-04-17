@@ -2,17 +2,30 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const db = require('./config/database')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const fs = require('fs')
 const https = require('https');
 
+const cookieParser = require('cookie-parser');
+const expressValidator = require('express-validator');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const mongo = require('mongodb');
+
+mongoose.connect('mongodb://localhost/loginapp');
+var db = mongoose.connection;
+
+var routes = require('./routes/index.route');
+var users = require('./routes/login.route');
+
 const postRouter = require('./routes/post.route')
 const app = express()
 
 // engedélyezés angularra
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type");
@@ -20,47 +33,67 @@ app.use(function(req, res, next) {
 });
 //-----------------------------------------
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
-// Connect to MongoDB
-mongoose.connect(db.uri, db.options).then(
-  () => {
-    console.log('MongoDB connected.')
-  },
-  err => {
-    console.error('MongoDB error.:' + err)
+// BodyParser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Express Session
+app.use(session({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function (param, msg, value) {
+    var namespace = param.split('.')
+      , root = namespace.shift()
+      , formParam = root;
+
+    while (namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param: formParam,
+      msg: msg,
+      value: value
+    };
   }
-)
+}));
 
-// Get view File Path
-/*function view (path) {
-  return __dirname + '/views/' + path
-}*/
+// Connect Flash
+app.use(flash());
 
-// Parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({
-  extended: false
-}))
-
-// Parse application/json
-app.use(bodyParser.json())
-
-// Minden kérés loggolása
-app.use(morgan('dev', {stream: fs.createWriteStream('./access.log', {flags: 'a'})}))
-
-// basic secure
-app.use(helmet())
+// Global Vars
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+});
 
 
 
-// Home page
-app.use('/api/blogpost', postRouter)
+app.use('/', routes);
+app.use('/users', users);
 
+// Set Port
+app.set('port', (process.env.PORT || 3004));
 
-
-// Start server
-// const server = https.createServer(httpsOptions, app)
-// server.listen(3003, function(){
-//   console.log("server running at https://localhost:3000/")
-// });
-
-app.listen(3004);
+app.listen(app.get('port'), () => {
+  console.log('Server started on port ' + app.get('port'));
+});

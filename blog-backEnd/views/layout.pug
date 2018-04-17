@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title LoginApp
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+  body
+    .container
+      .header.clearfix
+        nav
+          ul.nav.nav-pills.pull-right(*ngIf='user')
+            li(role='presentation')
+              a(href='/') Dashboard
+            li(role='presentation')
+              a(href='/users/logout') Logout
+          ul.nav.nav-pills.pull-right(*ngIf='!user')
+            li(role='presentation')
+              a(href='/users/login') Login
+            li(role='presentation')
+              a(href='/users/register') Register
+        h3.text-muted LoginApp
+    .row
+      .col-lg-12
+        .alert.alert-success(*ngIf='success_msg') {{success_msg}}
+        .alert.alert-danger(*ngIf='error_msg') {{error_msg}}
+        .alert.alert-danger(*ngIf='error') {{error}}
+        | {{{body}}}
+  main
+    block content
+
+    footer.footer
+        p © 2015 LoginApp, Inc.
+    // /container
