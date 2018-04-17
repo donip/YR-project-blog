@@ -5,7 +5,7 @@ nav.navbar.navbar-expand-md.navbar-dark.bg-primary
   #navbarNavDropdown.collapse.navbar-collapse
     ul.navbar-nav
       li.nav-item.justify-content(*ngFor='let menupoint of menuList')
-        a.nav-link.text-center(routerLink="{{ menupoint.url }}", routerLinkActive='active') "{{ menupoint.label }}"
+        a.nav-link.text-center(routerLink="{{ menupoint.url }}", routerLinkActive='active') {{ menupoint.label }}
     button.ml-auto.btn.btn-success(type='button', data-toggle="modal", data-target="#loginModal") Bejelentkezés
 #loginModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='Bejelentkezés', aria-hidden='true')
   .modal-dialog.modal-dialog-centered(role='document')
