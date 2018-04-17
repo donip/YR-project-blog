@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, RequestOptionsArgs } from '@angular/http';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpReqService } from './http-req.service';
@@ -9,6 +9,9 @@ import { HttpReqService } from './http-req.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
+
   title = 'app';
   bodyData: object = {
     id: '',
@@ -18,13 +21,15 @@ export class AppComponent {
     done: ''
     };
 
-    modalData: object = {
+  modalData: object = {
     id: '',
     text: '',
-    color: '',
+    title: '',
     important: '',
     done: ''
     };
+
+
 
     database: any;
     constructor(public http: Http) {
