@@ -21,6 +21,11 @@ export class AppComponent {
     done: ''
     };
 
+    loginData: object = {
+      username: '',
+      password: ''
+    };
+
   modalData: object = {
     id: '',
     text: '',
@@ -33,15 +38,19 @@ export class AppComponent {
 
     database: any;
     constructor(public http: Http) {
-      this.getAll();
-    }
+     }
 
     errorHandling(res) {
 
     }
 
+    login() {
+      this.http.post('http://localhost:8080/login', this.loginData)
+        .subscribe((data) => this.database = JSON.parse(data['_body']));
+    }
+
     getAll() {
-      this.http.get('http://localhost:3004/api/blogpost/').subscribe(
+      this.http.get('http://localhost:8080/blog/all').subscribe(
         (data) => this.database = JSON.parse(data['_body'])
       );
     }

@@ -13,6 +13,7 @@ import { RestfulinfoComponent } from './restfulinfo/restfulinfo.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BlogUiComponent } from './blog-ui/blog-ui.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { component: ProfileComponent, path: 'profile' },
   { component: KnowledgeComponent, path: 'knowledge' },
   { component: RestfulinfoComponent, path: 'restfulapi' },
-  { component: ContactComponent, path: 'contact' }
+  { component: ContactComponent, path: 'contact' },
+  { component: BlogUiComponent, path: 'blogpage' }
 ];
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ const routes: Routes = [
     RestfulinfoComponent,
     ContactComponent,
     MainComponent,
-    NavbarComponent
+    NavbarComponent,
+    BlogUiComponent
   ],
   imports: [
     BrowserModule,

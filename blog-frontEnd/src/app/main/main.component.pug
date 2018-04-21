@@ -1,1 +1,37 @@
-p main works!
+main
+    section.container-fluid.section-top
+        .row.col-10.m-auto
+            .col-12.col-md-6
+                h1 BlogPost
+                h4 Blogírás egyszerűen
+                p Regisztrálj és kezd el a blogírást, vagy nézd meg mások posztjait a legkülönbözőbb témákban!
+            .picture-container.col-12.col-md-6
+                img(src="../../assets/blog-mobile-op.png", alt="blog-image")
+    section.container-fluid.section-register
+        .row.col-12.col-md-10.m-auto
+            .col-12.col-lg-6.m-auto
+                h2 Regisztráció
+                p Regisztráció néhány lépésben
+                form(action="", method="post").col-lg-8.m-auto
+                    .form-group
+                        input.form-control(type="text", name="name", placeholder="Teljes név")
+                    .form-group
+                        input.form-control(type="text", name="username", placeholder="Felhasználónév")
+                    .form-group
+                        input.form-control(type="password", name="password", placeholder="Jelszó")
+                    .form-group
+                        input.form-control(type="password", name="password2", placeholder="Jelszó mégegyszer")
+                    button.btn.btn-dark.col-6.col-lg-2(type="submit") Regisztráció
+    section.container-fluid.section3
+        .row.col-12.m-auto
+            .col-12.m-auto.text-center
+                h2 Tekintsd meg a cikkeket
+                a.btn.btn-lg.btn-dark.bg-dark.text-white.col-8(routerLink="{{ '/blogpage' }}", routerLinkActive='active') Blog megnyitása
+    section.container-fluid.section4
+        .row.col-10.m-auto
+            .col-12
+                h1 SECTION4
+    section.container-fluid.section5
+        .row.col-10.m-auto
+            .col-12
+                h1 SECTION5
