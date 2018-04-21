@@ -1,0 +1,15 @@
+header {
+    padding-top: 60px;
+    padding-bottom: 10px;
+    background: deepskyblue
+}
+
+.card {
+    margin: 20px auto;
+    padding: 0;
+    box-shadow:  2px 4px 10px -2px rgb(99, 99, 99)
+}
+
+span {
+    font-size: 12px
+}

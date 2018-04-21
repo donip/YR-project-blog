@@ -1,0 +1,16 @@
+header
+  div
+    h2 BlogPost UI
+main
+  section
+    .container
+      .card.col-12(*ngFor='let post of datas')
+        //- img.card-img-top(src='{{post.picture}}', alt='Card image cap')
+        img.card-img-top(src='../../assets/default-blog.jpg', alt='Card image cap')
+        .card-body
+          h5.card-title {{post.title}}
+          p.card-text
+            | {{post.content}}
+        .card-footer
+          span Címkék: 
+          a(href="http://") {{post.tags}}
