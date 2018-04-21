@@ -1,3 +1,7 @@
+section {
+    background: white
+}
+
 header {
     padding-top: 60px;
     padding-bottom: 10px;
@@ -5,11 +9,23 @@ header {
 }
 
 .card {
-    margin: 20px auto;
+    margin: 0 0 40px 0;
     padding: 0;
-    box-shadow:  2px 4px 10px -2px rgb(99, 99, 99)
+    box-shadow: 0 6px 20px 0 rgba(38,45,61,.3);
+    border: none;
+    border-radius: 3px
 }
 
 span {
     font-size: 12px
+}
+
+.card-title {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, .4)
+}
+
+pre {
+    font-family: inherit;
+    white-space: pre-wrap;
+    padding: 0;
 }

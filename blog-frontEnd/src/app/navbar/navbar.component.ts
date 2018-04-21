@@ -19,6 +19,8 @@ export class NavbarComponent implements OnInit {
     { label: 'Kapcsolat', url: '/contact' }
   ];
 
+  userId = '';
+
   loginData: object = {
     username: '',
     password: ''
@@ -32,19 +34,40 @@ modalData: object = {
   done: ''
   };
 
-  loginText = 'Bejelentkezés';
+  loginText = '';
 
   database: any;
-  constructor(public http: Http) {}
+  constructor(public http: Http) {
+    console.log(this.readCookie('userid'));
+    console.log(this.readCookie('usernm'));
+    this.userId = this.readCookie('userid');
+    const nm = this.readCookie('usernm');
+    if (nm === '') {
+      this.loginText = 'Bejelentkezés' ; 
+    } else {
+      this.loginText = nm;
+    }
+
+  }
+
+    readCookie(index) {
+      const c = document.cookie.split('; ');
+      const id = JSON.stringify(c.filter(data => data.startsWith(`${index}=`))).substr(9);
+      const result = id.substr(0, id.indexOf('"'));
+      return result;
+    }
 
     login(loginData: NgForm) {
       this.http.post('http://localhost:8080/login', loginData.value)
         .subscribe((data) => {
           const adat = JSON.parse(data['_body'])
           console.log(JSON.parse(data['_body']));
-          if ( adat.success ) {
+          if ( adat['success'] ) {
           $('#loginModal').modal('hide');
           this.loginText = adat.userName;
+          this.userId = adat.id;
+          document.cookie = `userid=${adat.id}`;
+          document.cookie = `usernm=${adat.userName}`;
         }
       });
 

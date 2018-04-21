@@ -80,3 +80,6 @@ img {
 .section3>.row {
     padding: 0;
 }
+.section3>.row .btn {
+    opacity: .95;
+}

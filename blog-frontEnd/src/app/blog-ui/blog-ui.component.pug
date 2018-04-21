@@ -9,8 +9,7 @@ main
         img.card-img-top(src='../../assets/default-blog.jpg', alt='Card image cap')
         .card-body
           h5.card-title {{post.title}}
-          p.card-text
-            | {{post.content}}
+          pre.card-text.col-12 {{post.content}}
         .card-footer
           span Címkék: 
           a(href="http://") {{post.tags}}

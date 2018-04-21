@@ -52,7 +52,7 @@ export class BlogUiComponent {
   }
 
   create() {
-    this.http.post('http://localhost:8080/users/blog/create', this.adat).subscribe(
+    this.http.post('http://localhost:8080/blog/create', this.adat).subscribe(
       data => {
         this.errorHandling(data);
       });
@@ -76,4 +76,5 @@ export class BlogUiComponent {
     const choosen = this.datas.filter(item => item.id == id)[0];
     this.modal = Object.assign({}, choosen);
   }
+
 }
