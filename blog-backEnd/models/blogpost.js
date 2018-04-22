@@ -3,7 +3,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const User = require('../models/user');
 
 const blogpostSchema = mongoose.Schema({
-    _author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    _author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     title: {
         type: String,
         required: true

@@ -1,0 +1,38 @@
+header
+  .container
+    h2 Saját bejegyzéseim
+    span Eszközök:
+    a.btn.btn-info(data-toggle="collapse", href="#create-post", role="button", aria-expanded="false", aria-controls="createpost") Új bejegyzés írása
+    a.btn.btn-success(data-toggle="collapse", href="#search-bar", role="button", aria-expanded="false", aria-controls="searchbar") Keresés
+main
+  section#search-bar.collapse.container
+        div.row.input-group.btn-group.col-12.m-auto
+          input.col-8.form-control(type='text', name='search', id='search' ,[(ngModel)]='searchWord', placeholder='Keresés cím alapján')
+          button.col-4.btn.btn-info(type='button', (click)='searchPostByTitle()') Keresés
+  section#create-post.collapse
+    .container
+      form
+        .form-group
+          input.form-control(type="text", name='title', placeholder='Cím', [(ngModel)]='newPost.title')
+        .form-group
+          input.form-control(type="text", name='content', placeholder='Szöveg', [(ngModel)]='newPost.content')
+        .form-group
+          input.form-control(type="text", name='title', placeholder='Kép fájlneve', [(ngModel)]='newPost.picture')
+        .btn-group
+          button.btn.btn-info(type="button") Előnézet
+          button.btn.btn-success(type="submit", (click)='createPost()') Mentés
+  section
+    .container
+      .card.col-12(*ngFor='let post of datas; let i = index;trackBy: trackByFn')
+        .card-header.ml-auto
+          .btn-group
+            button.btn.btn-warning Szerkesztés
+            button.btn.btn-danger.ml-auto Törlés
+        //- img.card-img-top(src='{{post.picture}}', alt='Card image cap')
+        img.card-img-top(src='../../assets/default-blog.jpg', alt='Card image cap')
+        .card-body
+          h5.card-title {{post.title}}
+          pre.card-text.col-12 {{post.content}}
+        .card-footer
+          span Címkék: 
+          a(href="") {{post.tags}}

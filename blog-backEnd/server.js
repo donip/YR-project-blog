@@ -20,6 +20,13 @@ const logDirectory = path.join(__dirname, 'log');
 const port = process.env.PORT || 8080;
 const app = express();
 
+///--- engedélyezés az angularra
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 //Connect to MongoDB
 mongoose.connect(db.uri, db.options,
     () => {
@@ -41,6 +48,7 @@ app.use(morgan('combined', {  // logolás formátumának meghatározása
     stream: accessLogStream,
     skip: (req, res) => {res.statusCode < 400;}  // csak a hibás kódokat logolja (400-599)
 }));
+
 
 // Security
 app.use(helmet());
