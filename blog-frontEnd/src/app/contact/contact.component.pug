@@ -1,2 +1,32 @@
-p contact works!
+header
+section
+    iframe(width='100%', height='300', frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZ1QI7aDdQUcREOtvRq31ShU&key=AIzaSyDHHod3we97Lvk2yBQ8qnliEk2h1S5TBSY', allowfullscreen='')
+section
+    .container
+        .row
+            .col-12.col-lg-8
+                h2 Küldd el észrevételeid, tanácsaid
+                form(action='')
+                    .form-group
+                        label(for='user-name') Name
+                        input#user-name.form-control(type='text', name='user-name')
+                    .form-group
+                        label(for='subject') Subject
+                        input#subject.form-control(type='text', name='subject')
+                    .form-group
+                        label(for='user-email') Your email
+                        input#user-email.form-control(type='text', name='user-email')
+                    .form-group
+                        label(for='user-message') Message
+                        textarea#user-message.form-control(name='user-message', cols='50', rows='10')
+                    input.btn.btn-primary(type='submit', value='Send')
+            .col-12.col-lg-4.text-right
+                <p class="phonemail">
+                    <span>Phone: </span>
+                    <a href="tel:+123456789"> 123 456 789</a>
+                </p>
+                <p class="phonemail">
+                    <span>email: </span>
+                    <a href="mailto:office@example.com"> office@example.com</a>
+                </p>
 
