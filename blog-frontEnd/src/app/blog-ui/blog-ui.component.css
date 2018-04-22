@@ -4,8 +4,22 @@ section {
 
 header {
     padding-top: 60px;
-    padding-bottom: 10px;
-    background: deepskyblue
+    margin-bottom: 15px;
+    background-image: url('../../assets/background2.jpg');
+    background-size: cover;
+    box-shadow: 0 3px 10px rgba(38, 45, 61, 0.753);
+}
+
+header h2 {
+    color: white;
+    padding-left: 30px;
+}
+.input-group.btn-group{
+    padding: 15px 0;
+}
+
+header a {
+    color: black;
 }
 
 .card {
@@ -28,4 +42,9 @@ pre {
     font-family: inherit;
     white-space: pre-wrap;
     padding: 0;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 600;
 }

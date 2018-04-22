@@ -27,9 +27,10 @@ export class BlogUiComponent {
     picture: '',
     _author: ''
   };
-  searchWord = 'Search';
+  searchWord = '';
 
   datas: any;
+  datas2: any;
 
   constructor(public http: Http) {
     this.getAll();
@@ -41,6 +42,7 @@ export class BlogUiComponent {
       console.error('API error:' + res.error);
     } else {
       this.datas = res;
+      this.datas2 = res;
       this.sortPosts();
       console.log(this.datas);
     }
@@ -98,13 +100,11 @@ export class BlogUiComponent {
   }
 
   searchPostByTitle() {
-    this.datas = this.datas.filter(post =>
-     (JSON.stringify(post.title)).indexOf(this.searchWord) !== -1);
-     console.log(this.datas);
+    const word = this.searchWord.toLocaleLowerCase();
+    this.datas = this.datas2.filter(post =>
+     (JSON.stringify(post.title)).toLocaleLowerCase().indexOf(word) !== -1);
+     console.log(this.datas.length + ' találat');
 
-  }
-  changed(index, item) {
-    return index;
   }
 
 

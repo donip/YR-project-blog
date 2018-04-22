@@ -23,7 +23,7 @@ const routes: Routes = [
   { component: KnowledgeComponent, path: 'knowledge' },
   { component: RestfulinfoComponent, path: 'restfulapi' },
   { component: ContactComponent, path: 'contact' },
-  { component: BlogUiComponent, path: 'blogpage' }
+  { component: BlogUiComponent, path: 'blogpage' },
   { component: BloguserComponent, path: 'bloguser' }
 ];
 @NgModule({

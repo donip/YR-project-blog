@@ -1,4 +1,6 @@
 .navbar {
-    background: rgb(21, 77, 129);
+    background: linear-gradient(rgb(12, 80, 143, .70),rgba(12, 80, 143, 0.70)), url('../../assets/background2.jpg');
+    opacity: .85;
+    background-size: cover;
     box-shadow: 0 3px 15px black;
 }
