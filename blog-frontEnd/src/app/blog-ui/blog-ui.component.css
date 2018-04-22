@@ -25,10 +25,10 @@ header a:hover {
     color: rgb(16, 119, 216);
 }
 header a::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
     content: "\f002";
-    font-size: 22px
+    font-family: "Font Awesome 5 Free";
+    font-size: 22px;
+    font-weight: 900;
 }
 
 

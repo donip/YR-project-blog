@@ -6,13 +6,22 @@ main
                 h4 Blogírás egyszerűen
                 p Regisztrálj és kezd el a blogírást, vagy nézd meg mások posztjait a legkülönbözőbb témákban!
             .picture-container.col-12.col-md-6
-                img(src="../../assets/blog-mobile-op.png", alt="blog-image")
+                //- img(src="../../assets/blog-mobile-op.png", alt="blog-image")
+                #carouselBlog.carousel.slide(data-ride='carousel')
+                    .carousel-inner
+                        .carousel-item.active
+                            img.d-block.w-100.active(src="../../assets/blog-mobile-op.png", alt="blog-image")
+                        .carousel-item
+                            img.d-block.w-100(src='../../assets/blog.jpg', alt='Second slide')
+                        .carousel-item
+                            img.d-block.w-100(src='../../assets/blogging.png', alt='Third slide')
+
     section#register.container-fluid.section-register
-        .row.col-12.col-md-10.m-auto
-            .col-12.col-lg-6.m-auto
+        .row.m-auto
+            .col-12.col-md-10.col-lg-8.col-xl-6.m-auto
                 h2 Regisztráció
                 p Regisztráció néhány lépésben
-                form(action="", method="post").col-lg-8.m-auto
+                form(action="", method="post").m-auto
                     .form-group
                         input.form-control(type="email", name="email", placeholder="Email cím", [(ngModel)]='registerUser.email', required)
                     .form-group
@@ -21,12 +30,13 @@ main
                         input.form-control(type="password", name="password", placeholder="Jelszó", [(ngModel)]='registerUser.password')
                     .form-group
                         input.form-control(type="password", name="password2", placeholder="Jelszó mégegyszer", [(ngModel)]='password2')
-                    button.btn.btn-dark.col-6(type="button", (click)='register()') Regisztráció
+                    .form-group
+                        button.btn.btn-dark.col-6.m-auto(type="button", (click)='register()') Regisztráció
     section.container-fluid.section3
         .row.col-12.m-auto
             .col-12.m-auto.text-center
                 h2 Nézd meg a legfrissebb bejegyzéseket!
-                a.btn.btn-lg.btn-dark.bg-dark.text-white.col-8(routerLink="{{ '/blogpage' }}", routerLinkActive='active') Blog megnyitása
+                a.btn.btn-lg.btn-dark.bg-dark.text-white.col-8.col-lg-4(routerLink="{{ '/blogpage' }}", routerLinkActive='active') Blog megnyitása
     section.container-fluid.section4
         .row.col-10.m-auto
             .col-12

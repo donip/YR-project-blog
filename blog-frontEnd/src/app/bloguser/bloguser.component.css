@@ -25,32 +25,46 @@ header h2 {
 header a {
     color: rgb(6, 64, 129);
     text-decoration: none;
-    margin-right: 15px;
+    margin-right: 25px;
 }
 header a:hover {
     color: rgb(16, 119, 216);
 }
 header a:nth-of-type(2):before {
+    content: "\f002  ";
     font-family: "Font Awesome 5 Free";
+    font-size: 22px;
     font-weight: 900;
-    content: "\f002";
-    font-size: 22px
 }
 header a:first-of-type:before {
+    content: "\f067  ";
     font-family: "Font Awesome 5 Free";
+    font-size: 22px;
     font-weight: 900;
-    content: "\f044";
-    font-size: 22px
+}
+
+.btn-warning::before {
+    content: "\f14b  ";
+    font-family: "Font Awesome 5 Free";
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.modal .btn-primary::before {
+    content: "\f0c7  ";
+    font-family: "Font Awesome 5 Free";
+    font-size: 22px;
+    font-weight: 900;
 }
 #search-bar .input-group {
     padding-bottom: 20px;
 }
 .card {
+    border: 2px solid rgba(36, 91, 221, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 6px 20px 0 rgba(38,45,61,.3);
     margin: 20px 0 40px 0;
     padding: 0;
-    box-shadow: 0 6px 20px 0 rgba(38,45,61,.3);
-    border: 2px solid rgba(36, 91, 221, 0.5);
-    border-radius: 5px
 }
 
 @media (min-width: 992px) {
@@ -63,8 +77,8 @@ header a:first-of-type:before {
 }
 pre {
     font-family: inherit;
-    white-space: pre-wrap;
     padding: 0;
+    white-space: pre-wrap;
 }
 span {
     font-size: 12px

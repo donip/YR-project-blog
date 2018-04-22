@@ -15,13 +15,14 @@ export class MainComponent {
   };
   password2 = '';
 
-  constructor(public http: Http) { }
+  constructor(public http: Http) {
+  }
 
   register() {
     console.log(this.registerUser);
     this.http.post('http://localhost:8080/register', this.registerUser)
       .subscribe((data) => {
-        window.alert('Sikeres regisztráció')
+        window.alert('Sikeres regisztráció');
     });
   }
 }

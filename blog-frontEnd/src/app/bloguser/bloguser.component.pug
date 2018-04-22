@@ -23,9 +23,9 @@ header
           //- input.form-control(type="text", name='picture', placeholder='Kép fájlneve', [(ngModel)]='newPost.picture')
           input.form-control(#file, type="file", name='picture', placeholder='Kép fájlneve', (change)="changePic(file)")
 
-        .btn-group
-          button.btn.btn-info(type="button") Előnézet
-          button.btn.btn-success(type="button", (click)='createPost()') Mentés
+        .btn-group.col-12.col-md-6
+          button.btn.btn-info.col-6.col-md-3(type="button") Előnézet
+          button.btn.btn-success.col-6.col-md-3(type="button", (click)='createPost()') Mentés
 main
   section
     .container
@@ -48,13 +48,16 @@ main
         .modal-header
           h5.modal-title Szerkesztés
           button.close(type='button', data-dismiss='modal', aria-label='Close')
-            span(aria-hidden='true') ×
+            strong(aria-hidden='true') ×
         .modal-body
-          input.form-control(type="text" name="title" id="title", [(ngModel)]="modal.title")
-          textarea.form-control(name="content" id="content", [(ngModel)]="modal.content")
-          //- input.form-control(type="text" name="picture" id="picture", [(ngModel)]="modal.picture")
-          input.form-control(#fileEdit, type="file", name='picture', (change)="changePicModal(fileEdit)")
+          .form-group
+            input.form-control(type="text" name="title" id="title", [(ngModel)]="modal.title")
+          .form-group
+            textarea.form-control(name="content" id="content", [(ngModel)]="modal.content")
+          .form-group
+            //- input.form-control(type="text" name="picture" id="picture", [(ngModel)]="modal.picture")
+            input.form-control(#fileEdit, type="file", name='picture', (change)="changePicModal(fileEdit)")
         .modal-footer
-          button.btn.btn-danger(type='button', (click)='deletePost()') Bejegyzés törlése
-          button.btn.btn-primary(type='button', (click)='editPost()') Mentés
-          button.btn.btn-secondary(type='button', data-dismiss='modal') Bezárás
+          .btn-group
+            button.btn.btn-danger(type='button', (click)='deletePost()')
+            button.btn.btn-primary(type='button', (click)='editPost()') Mentés

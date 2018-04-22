@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+.btn.btn-danger::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f2ed";
+    font-size: 18px
+}
