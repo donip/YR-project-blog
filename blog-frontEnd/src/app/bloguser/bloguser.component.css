@@ -1,6 +1,6 @@
 header {
-    padding-top: 70px;
     background: rgba(154, 182, 248, 0.3);
+    padding-top: 70px;
 }
 
 header span {
@@ -11,6 +11,37 @@ header span {
     padding-bottom: 15px;
 }
 
+header h2 {
+    text-align: center;
+}
+
+@media (min-width: 992px) {
+
+    header h2 {
+        text-align: left;
+    }
+}
+
+header a {
+    color: rgb(6, 64, 129);
+    text-decoration: none;
+    margin-right: 15px;
+}
+header a:hover {
+    color: rgb(16, 119, 216);
+}
+header a:nth-of-type(2):before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f002";
+    font-size: 22px
+}
+header a:first-of-type:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f044";
+    font-size: 22px
+}
 #search-bar .input-group {
     padding-bottom: 20px;
 }
@@ -22,6 +53,14 @@ header span {
     border-radius: 5px
 }
 
+@media (min-width: 992px) {
+
+    .card {
+        display: inline-block;
+        margin: 20px 3.5%;
+        vertical-align: top;
+    }
+}
 pre {
     font-family: inherit;
     white-space: pre-wrap;

@@ -3,16 +3,17 @@ doctype html
 header
   .container.upper
     h2 Saját bejegyzéseim
-    span Eszközök:
-    .btn-group
-      a.btn.btn-lg.btn-info(data-toggle="collapse", href="#create-post", role="button", aria-expanded="false", aria-controls="createpost") Új bejegyzés írása
-      a.btn.btn-lg.btn-success(data-toggle="collapse", href="#search-bar", role="button", aria-expanded="false", aria-controls="searchbar") Keresés
+    .row
+      div.m-auto
+        a(data-toggle="collapse", href="#create-post", role="button", aria-expanded="false", aria-controls="createpost") Új bejegyzés írása
+        a(data-toggle="collapse", href="#search-bar", role="button", aria-expanded="false", aria-controls="searchbar") Keresés
   section#search-bar.collapse.container
         div.row.input-group.btn-group.col-12.m-auto
           input.col-8.form-control(type='text', name='search', id='search' ,[(ngModel)]='searchWord', placeholder='Keresés cím alapján')
           button.col-4.btn.btn-info(type='button', (click)='searchPostByTitle()') Keresés
   section#create-post.collapse
     .container
+      h4 Új bejegyzés
       form
         .form-group
           input.form-control(type="text", name='title', placeholder='Cím', [(ngModel)]='newPost.title')
@@ -28,7 +29,7 @@ header
 main
   section
     .container
-      .card.col-12(*ngFor='let post of datas; let i = index;trackBy: trackByFn')
+      .card.col-12.col-lg-5(*ngFor='let post of datas; let i = index;trackBy: trackByFn')
         .card-header.ml-auto
           .btn-group
             button.btn.btn-warning(data-toggle='modal', data-target='#edit-in-modal', (click)='editModal(post._id)') Szerkesztés

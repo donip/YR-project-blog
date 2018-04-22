@@ -6,12 +6,12 @@ header
         a(data-toggle="collapse", href="#search-bar", role="button", aria-expanded="false", aria-controls="searchbar") Keresés
     div#search-bar.collapse.container
       div.row.input-group.btn-group.col-12.m-auto
-        input.col-8.form-control(type='text', name='search', id='search' ,[(ngModel)]='searchWord', placeholder='Keresés cím alapján')
-        button.col-4.btn.btn-info(type='button', (click)='searchPostByTitle()') Keresés
+        input.col-8.col-md-9.col-lg-10.form-control(type='text', name='search', id='search' ,[(ngModel)]='searchWord', placeholder='Keresés cím alapján')
+        button.col-4.col-md-3.col-lg-2.btn.btn-info(type='button', (click)='searchPostByTitle()') Keresés
 main
   section
     .container
-      .card.col-12(*ngFor='let post of datas; let i = index;trackBy: trackByFn')
+      .card.col-12.col-lg-5(*ngFor='let post of datas; let i = index;trackBy: trackByFn')
         //- img.card-img-top(src='{{post.picture}}', alt='Card image cap')
         img.card-img-top(src='../../assets/{{post.picture}}', alt='Card image cap')
         .card-body
