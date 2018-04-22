@@ -13,7 +13,7 @@ main
     .container
       .card.col-12(*ngFor='let post of datas; let i = index;trackBy: trackByFn')
         //- img.card-img-top(src='{{post.picture}}', alt='Card image cap')
-        img.card-img-top(src='../../assets/default-blog.jpg', alt='Card image cap')
+        img.card-img-top(src='../../assets/{{post.picture}}', alt='Card image cap')
         .card-body
           h5.card-title {{post.title}}
           pre.card-text.col-12 {{post.content}}

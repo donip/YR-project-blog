@@ -10,6 +10,8 @@ userRouter.get('/logout', User.logout);
 
 userRouter.get('/blog/all', Blogpost.getAllBlogposts);
 userRouter.post('/blog/createpost', Blogpost.createBlogpost);
-userRouter.get('/blog/findpost', Blogpost.getBlogpost);
+userRouter.get('/blog/findpost/:id', Blogpost.getBlogpost);
+userRouter.put('/blog/editpost/:id', Blogpost.updateBlogpost);
+userRouter.delete('/blog/deletepost/:id', Blogpost.deleteBlogpost);
 
 module.exports = userRouter;

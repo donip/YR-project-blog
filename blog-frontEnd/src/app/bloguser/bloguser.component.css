@@ -1,7 +1,32 @@
 header {
     padding-top: 70px;
+    background: rgba(154, 182, 248, 0.3);
 }
 
 header span {
     margin-right: 15px;
+}
+
+.container.upper, header form{
+    padding-bottom: 15px;
+}
+
+#search-bar .input-group {
+    padding-bottom: 20px;
+}
+.card {
+    margin: 20px 0 40px 0;
+    padding: 0;
+    box-shadow: 0 6px 20px 0 rgba(38,45,61,.3);
+    border: 2px solid rgba(36, 91, 221, 0.5);
+    border-radius: 5px
+}
+
+pre {
+    font-family: inherit;
+    white-space: pre-wrap;
+    padding: 0;
+}
+span {
+    font-size: 12px
 }

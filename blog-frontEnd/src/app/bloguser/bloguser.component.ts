@@ -18,11 +18,20 @@ export class BloguserComponent {
     picture: ''
   };
 
+  filepath = 'default.jpg';
+
+  chosen: any;
+  modal = {
+    title: '',
+    content: '',
+    picture: '',
+    _author: ''
+  };
+
     searchWord = '';
   constructor(public http: Http) {
     this.getAll();
   }
-
 
   errorHandling(res) {
     res = JSON.parse(res['_body']);
@@ -42,6 +51,13 @@ export class BloguserComponent {
       data => {
         this.errorHandling(data);
       });
+  }
+
+  changePic(file) {
+    this.newPost.picture = file.value.substring(12);
+  }
+  changePicModal(file) {
+    this.modal.picture = file.value.substring(12);
   }
 
   sortPosts() {
@@ -76,10 +92,35 @@ export class BloguserComponent {
     this.http.post('http://localhost:8080/blog/createpost', this.newPost).subscribe(
       data => {
         console.log(data);
+        if(data['success']) {
+          location.reload();
+        }
       });
     } else {
       console.log('Nincs bejelentkezve');
     }
+  }
+
+  editModal(id) {
+    this.chosen = this.datas.filter(item => item._id === id)[0];
+    this.modal = Object.assign({}, this.chosen);
+  }
+
+  editPost() {
+    this.http.put(`http://localhost:8080/blog/editpost/${this.chosen._id}`, this.modal).subscribe(
+      data => {
+        console.log(data);
+        this.getAll();
+      });
+  }
+
+  deletePost() {
+    window.confirm('Biztosan törlöd a bejegyzést?')
+    this.http.delete(`http://localhost:8080/blog/deletepost/${this.chosen._id}`).subscribe(
+      data => {
+        console.log(data);
+        this.getAll();
+      });
   }
 
 }
