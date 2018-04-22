@@ -27,6 +27,7 @@ export class BlogUiComponent {
     picture: '',
     _author: ''
   };
+  searchWord = 'Search';
 
   datas: any;
 
@@ -40,9 +41,18 @@ export class BlogUiComponent {
       console.error('API error:' + res.error);
     } else {
       this.datas = res;
+      this.sortPosts();
       console.log(this.datas);
     }
   }
+
+    getUser() {
+      this.http.get('http://localhost:8080/').subscribe(
+        data => {
+          console.log(JSON.parse(data['_body']));
+        }
+      );
+    }
 
   getAll() {
     this.http.get('http://localhost:8080/blog/all').subscribe(
@@ -76,5 +86,26 @@ export class BlogUiComponent {
     const choosen = this.datas.filter(item => item.id == id)[0];
     this.modal = Object.assign({}, choosen);
   }
+
+  sortPosts() {
+    this.datas = this.datas.sort((a, b) => {
+      if (a.updatedAt > b.updatedAt) {
+        return -1; }
+      if (a.updatedAt < b.updatedAt) {
+        return 1; }
+      return 0;
+    });
+  }
+
+  searchPostByTitle() {
+    this.datas = this.datas.filter(post =>
+     (JSON.stringify(post.title)).indexOf(this.searchWord) !== -1);
+     console.log(this.datas);
+
+  }
+  changed(index, item) {
+    return index;
+  }
+
 
 }

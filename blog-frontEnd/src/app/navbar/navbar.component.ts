@@ -43,7 +43,7 @@ modalData: object = {
     this.userId = this.readCookie('userid');
     const nm = this.readCookie('usernm');
     if (nm === '') {
-      this.loginText = 'Bejelentkezés' ; 
+      this.loginText = 'Bejelentkezés' ;
     } else {
       this.loginText = nm;
     }
@@ -60,18 +60,33 @@ modalData: object = {
     login(loginData: NgForm) {
       this.http.post('http://localhost:8080/login', loginData.value)
         .subscribe((data) => {
-          const adat = JSON.parse(data['_body'])
+          const adat = JSON.parse(data['_body']);
           console.log(JSON.parse(data['_body']));
           if ( adat['success'] ) {
-          $('#loginModal').modal('hide');
-          this.loginText = adat.userName;
-          this.userId = adat.id;
-          document.cookie = `userid=${adat.id}`;
-          document.cookie = `usernm=${adat.userName}`;
-        }
+            this.loginText = adat.userName;
+            this.userId = adat.id;
+            document.cookie = `userid=${adat.id}`;
+            document.cookie = `usernm=${adat.userName}`;
+          }
+          location.reload();
       });
-
     }
+
+      logout() {
+        this.http.get('http://localhost:8080/logout').subscribe(
+          (data) => { console.log(JSON.parse(data['_body']));
+          const adat = JSON.parse(data['_body']);
+          if ( adat['success'] ) {
+            this.loginText = '';
+            this.userId = '';
+            document.cookie = `userid=`;
+            document.cookie = `usernm=`;
+          }
+          location.reload(); }
+        );
+      }
+
+
 
     getAll() {
       this.http.get('http://localhost:8080/blog/all').subscribe(
