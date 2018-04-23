@@ -4,29 +4,29 @@ section
 section
     .container
         .row
-            .col-12.col-lg-8
-                h2 Küldd el észrevételeid, tanácsaid
+            .left-side.col-12.col-lg-4
+                <p class="phonemail">
+                    <span>Telefon: </span>
+                    <a href="tel:+36203333333"> +36203333333</a>
+                </p>
+                <p class="phonemail">
+                    <span>Email: </span>
+                    <a href="mailto:office@example.com"> yellow.pataki.doni@gmail.com</a>
+                </p>
+            .form-block.col-12.col-lg-8
+                h2 Küldd el észrevételeid, tanácsaid!
                 form(action='')
                     .form-group
-                        label(for='user-name') Name
+                        label(for='user-name') Név
                         input#user-name.form-control(type='text', name='user-name')
                     .form-group
-                        label(for='subject') Subject
+                        label(for='subject') Tárgy
                         input#subject.form-control(type='text', name='subject')
                     .form-group
-                        label(for='user-email') Your email
+                        label(for='user-email') Válasz email cím
                         input#user-email.form-control(type='text', name='user-email')
                     .form-group
-                        label(for='user-message') Message
+                        label(for='user-message') Üzenet
                         textarea#user-message.form-control(name='user-message', cols='50', rows='10')
-                    input.btn.btn-primary(type='submit', value='Send')
-            .col-12.col-lg-4.text-right
-                <p class="phonemail">
-                    <span>Phone: </span>
-                    <a href="tel:+123456789"> 123 456 789</a>
-                </p>
-                <p class="phonemail">
-                    <span>email: </span>
-                    <a href="mailto:office@example.com"> office@example.com</a>
-                </p>
+                    button.btn.btn-primary(type='submit') Küldés
 

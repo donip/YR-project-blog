@@ -73,6 +73,7 @@ modalData: object = {
     }
 
       logout() {
+        if (window.confirm('Biztosan ki szeretnél lépni?')) {
         this.http.get('http://localhost:8080/logout').subscribe(
           (data) => { console.log(JSON.parse(data['_body']));
           const adat = JSON.parse(data['_body']);
@@ -84,6 +85,7 @@ modalData: object = {
           }
           location.reload(); }
         );
+        }
       }
 
 

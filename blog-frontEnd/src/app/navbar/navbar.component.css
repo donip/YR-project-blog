@@ -12,5 +12,5 @@ nav.navbar.navbar-expand-md a.nav-link:hover {
     color: rgba(255, 255, 255, .5)
 }
 nav.navbar.navbar-expand-md a.nav-link.active {
-    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.35), rgba(255,255,255,0));
+    background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.25), rgba(255,255,255,0));
 }

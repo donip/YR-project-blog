@@ -50,6 +50,18 @@ header a:first-of-type:before {
     font-weight: 900;
 }
 
+.btn-warning {
+    position: absolute;
+    box-shadow: 2px 2px 10px black;
+    right: 0px;
+    top: -10px
+}
+
+.card-header {
+    position: relative;
+    text-align: right
+}
+
 .modal .btn-primary::before {
     content: "\f0c7  ";
     font-family: "Font Awesome 5 Free";
@@ -82,4 +94,10 @@ pre {
 }
 span {
     font-size: 12px
+}
+
+.modal-header {
+    background: linear-gradient(rgb(12, 80, 143, .80),rgba(12, 80, 143, 0.80)), url('../../assets/background2.jpg');
+    background-size: cover;
+    color: white;
 }

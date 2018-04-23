@@ -15,6 +15,7 @@ import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BlogUiComponent } from './blog-ui/blog-ui.component';
 import { BloguserComponent } from './bloguser/bloguser.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -37,7 +38,8 @@ const routes: Routes = [
     MainComponent,
     NavbarComponent,
     BlogUiComponent,
-    BloguserComponent
+    BloguserComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
