@@ -26,7 +26,8 @@ export class BloguserComponent {
     title: '',
     content: '',
     picture: '',
-    _author: ''
+    _author: '',
+    tags: ''
   };
 
     searchWord = '';

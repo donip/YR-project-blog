@@ -147,9 +147,10 @@ export class BlogUiComponent {
           $(selector).prepend(`
           <div class="comments">
           <div class="row">
-          <kbd class="bg-light text-info">${this.newComment.sentBy}:</kbd>
+          <kbd class="bg-light text-info" style="margin-right: 10px; height: 2em;">${this.newComment.sentBy}:</kbd>
           <p class="card-text">${this.newComment.content}</p>
-            </div></div>`);
+          <span class="ml-auto"</span><button class="btn btn-default btn-sm">x</button></span>
+          </div></div>`);
             this.newComment.content = '';
         });
       }

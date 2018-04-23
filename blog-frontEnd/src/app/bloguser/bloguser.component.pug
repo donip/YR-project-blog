@@ -57,6 +57,8 @@ main
           .form-group
             //- input.form-control(type="text" name="picture" id="picture", [(ngModel)]="modal.picture")
             input.form-control(#fileEdit, type="file", name='picture', (change)="changePicModal(fileEdit)")
+          .form-group
+            input.form-control(name="tags" id="tags", [(ngModel)]="modal.tags", placeholder='Címke')
         .modal-footer
           .btn-group
             button.btn.btn-danger(type='button', (click)='deletePost()')
