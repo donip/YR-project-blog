@@ -138,6 +138,9 @@ export class BlogUiComponent {
     } else {
       const selector = `.com${id}`;
       this.newComment.sentBy = this.readCookie('usernm');
+      if (this.newComment.sentBy === '') {
+        window.alert('Hozzászólás írásához jelentkezz be!');
+      } else {
       this.newComment.sentTo = id;
       this.http.post('http://localhost:8080/comment/create', this.newComment).subscribe(
         data => {
@@ -149,6 +152,21 @@ export class BlogUiComponent {
             </div></div>`);
             this.newComment.content = '';
         });
+      }
+    }
+  }
+
+  deleteComment(id, name) {
+    if (this.readCookie('usernm') === name) {
+      if (window.confirm('Biztosan törlöd a hozzászólást?')) {
+        this.http.delete(`http://localhost:8080/comment/delete/${id}`).subscribe(
+        data => {
+          console.log(data);
+          location.reload();
+        });
+      }
+    } else {
+      window.alert('Csak a saját kommentjeidet törölheted!');
     }
   }
 

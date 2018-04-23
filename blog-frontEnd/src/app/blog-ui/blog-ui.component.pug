@@ -36,4 +36,6 @@ main
                 .row(*ngIf='comment.sentTo == post._id')
                   kbd.bg-light.text-info {{comment.sentBy}}:
                   p.card-text {{comment.content}}
+                  span.ml-auto
+                    button.btn.btn-default.btn-sm((click)='deleteComment(comment._id, comment.sentBy)') x
               div(class='com{{post._id}}')

@@ -71,3 +71,7 @@ a {
 button.comment-button {
     border-radius: 0;
 }
+kbd {
+height: 2em;
+margin-right: 10px
+}
