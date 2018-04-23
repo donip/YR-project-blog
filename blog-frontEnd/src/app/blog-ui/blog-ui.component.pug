@@ -1,11 +1,11 @@
 header
   div
-    div.row
+    .row
       h2.col-8 BlogPost UI
-      div.m-auto
+      .m-auto
         a(data-toggle="collapse", href="#search-bar", role="button", aria-expanded="false", aria-controls="searchbar") Keresés
-    div#search-bar.collapse.container
-      div.row.input-group.btn-group.col-12.m-auto
+    #search-bar.collapse.container
+      .row.input-group.btn-group.col-12.m-auto
         input.col-8.col-md-9.col-lg-10.form-control(type='text', name='search', id='search' ,[(ngModel)]='searchWord', placeholder='Keresés cím alapján')
         button.col-4.col-md-3.col-lg-2.btn.btn-info(type='button', (click)='searchPostByTitle()') Keresés
 main
@@ -18,5 +18,22 @@ main
           h5.card-title {{post.title}}
           pre.card-text.col-12 {{post.content}}
         .card-footer
-          span Címkék: 
-          a(href="") {{post.tags}}
+          .row
+            .col-6
+              span Címkék: 
+              a(href="") {{post.tags}}
+            .col-6.text-right
+              span Szerző: 
+                strong {{post.user}}
+        a.col-12.btn.btn-small.text-center.comment-button(data-toggle="collapse", href="#{{post._id}}", role="button", aria-expanded="false", aria-controls="comment-section") Hozzászólások
+        .card-body.collapse(id='{{post._id}}')
+            .container
+              .row
+                .input-group.btn-group
+                  input.form-control(type="text", placeholder='Hozzászólás', [(ngModel)]='newComment.content')
+                  button.btn.btn-primary((click)='sendComment(post._id)') Küldés
+              .comments(*ngFor='let comment of comments')
+                .row(*ngIf='comment.sentTo == post._id')
+                  kbd.bg-light.text-info {{comment.sentBy}}:
+                  p.card-text {{comment.content}}
+              div(class='com{{post._id}}')

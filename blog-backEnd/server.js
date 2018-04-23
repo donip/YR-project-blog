@@ -13,6 +13,7 @@ const mongoose = require('mongoose');
 
 const User = require('./models/user');
 const Blogpost = require('./models/blogpost');
+const Comment = require('./models/comment');
 const userRouter = require('./routes/user.route')
 const db = require('./config/database.js');
 

@@ -4,6 +4,10 @@ const User = require('../models/user');
 
 const blogpostSchema = mongoose.Schema({
     _author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    user: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true

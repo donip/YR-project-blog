@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const commentSchema = mongoose.Schema({
-    sentBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    sentBy: {
+        type: String,
+        required: true
+    },
     content: {
         type: String,
         required: true
@@ -12,9 +15,5 @@ const commentSchema = mongoose.Schema({
         timestamps: true
     });
 
-userSchema.plugin(passportLocalMongoose, { //passport-local-mongoose leírásban benne vannak a beállítások
-    maxAttempts: 5,
-    hashField: 'passwordHash'
-}); //lehet különböző beállítsokat adni
 
 module.exports = mongoose.model('Comment', commentSchema);

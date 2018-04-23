@@ -15,7 +15,8 @@ export class BloguserComponent {
     title: '',
     _author: '',
     content: '',
-    picture: ''
+    picture: '',
+    user: ''
   };
 
   filepath = 'default.jpg';
@@ -86,8 +87,9 @@ export class BloguserComponent {
   }
 
   createPost() {
-    if (this.readCookie('userid') !== '') {
+    if (this.readCookie('userid') !== '' && this.readCookie('usernm') !== '') {
     this.newPost._author = this.readCookie('userid');
+    this.newPost.user = this.readCookie('usernm');
     console.log(this.newPost);
     this.http.post('http://localhost:8080/blog/createpost', this.newPost).subscribe(
       data => {
