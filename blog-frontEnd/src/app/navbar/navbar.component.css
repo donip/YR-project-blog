@@ -14,3 +14,11 @@ nav.navbar.navbar-expand-md a.nav-link:hover {
 nav.navbar.navbar-expand-md a.nav-link.active {
     background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.25), rgba(255,255,255,0));
 }
+
+.navbar-brand {
+    transition-duration: .8s;
+}
+.navbar-brand:hover {
+    transform: rotateY(30deg);
+    transition-duration: .8s;
+}

@@ -18,6 +18,9 @@
     letter-spacing: 3px;
     text-shadow: 3px 3px 5px black;
 }
+.carousel {
+    max-width: 500px;
+}
 
 @media (min-width: 800px) {
     .section-top h1 {
