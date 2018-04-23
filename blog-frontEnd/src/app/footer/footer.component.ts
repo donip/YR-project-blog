@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $: any;
+declare var jquery: any;
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.pug',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+ }
+
 
   ngOnInit() {
+
   }
 
 }

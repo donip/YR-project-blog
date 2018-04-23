@@ -1,0 +1,20 @@
+
+header {
+    margin-top: 70px;
+}
+
+main {
+    padding: 25px;
+    height: calc(100vh - 160px);
+}
+
+@media (min-width: 500px) {
+    main {
+        height: calc(100vh - 139px);
+    }
+}
+.card {
+    border: 2px solid rgba(36, 91, 221, 0.5);
+    border-radius: 5px;
+    box-shadow: 0 6px 20px 0 rgba(38,45,61,.3);
+}
